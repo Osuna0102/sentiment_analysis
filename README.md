@@ -1,6 +1,6 @@
-# Project Name
+# Sentiment Analysis Project
 
-Short project description.
+This project combines sentiment analysis and face recognition to analyze the emotions of individuals in images.
 
 ## Technologies Used
 
@@ -47,7 +47,7 @@ To get the project up and running, follow these steps:
 venv\Scripts\activate
    ```
 
-4.1 Or on macOS and Linux:
+   4.1 Or on macOS and Linux:
 ```
 source venv/bin/activate
    ```
@@ -57,7 +57,6 @@ source venv/bin/activate
 pip install -r requirements.txt
    ```
 
-**Usage**
 Prepare the SQLite database:
 
 6. **Create a new SQLite database or use the provided workers.db if available.**
@@ -92,13 +91,37 @@ CREATE TABLE IF NOT EXISTS face_encodings (
     FOREIGN KEY (individual_id) REFERENCES individuals(id)
 );
    ```
+
+
+8. **Collecting Data**
+To collect face data for individuals, use collect_data.py:
+
+```
+python collect_data.py
+   ```
+
+Follow the prompts to collect images and associate them with individuals.
+
+9. **Training Sentiment Model**
+   
+To train the sentiment analysis model, use train_sentiment_model.py:
+
+```
+python train_sentiment_model.py
+   ```
+
+This script will train the model using your dataset. You can customize it further for better performance.
+
+
 Populate the individuals and images tables with data.
-8. **Run the Flask application:**
+
+10. **Run the Flask application:**
 
 ```
 python web_interface.py
    ```
-9. **Access the web interface by opening a web browser and navigating to:**
+
+11. **Access the web interface by opening a web browser and navigating to:**
 
 
 ```
