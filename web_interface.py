@@ -10,7 +10,7 @@ app = Flask(__name__)
 model = load_model('sentiment_model.h5')
 
 # Define emotions corresponding to model output
-emotions = ['happy', 'sad', 'angry', 'neutral']
+emotions = ['happy', 'sad', 'angry', 'neutral', 'fear','surpirse','disgust']
 
 @app.route('/')
 def index():

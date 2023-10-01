@@ -39,3 +39,14 @@ np.save("x_train.npy", x_train)
 np.save("x_test.npy", x_test)
 np.save("y_train.npy", y_train)
 np.save("y_test.npy", y_test)
+
+x_train = np.load("x_train.npy")
+x_test = np.load("x_test.npy")
+y_train = np.load("y_train.npy")
+y_test = np.load("y_test.npy")
+
+
+print("x_train shape:", x_train.shape)
+print("x_test shape:", x_test.shape)
+print("y_train shape:", y_train.shape)
+print("y_test shape:", y_test.shape)
