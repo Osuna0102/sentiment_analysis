@@ -27,61 +27,83 @@ To get the project up and running, follow these steps:
 
 1. **Clone the repository:**
 
-   ```
+```
    git clone https://github.com/Osuna0102/sentiment_analysis.git
-      ```
+   ```
 
-Navigate to the project directory:
-```cd your-project```
+2. **Navigate to the project directory:**
+```
+   cd your-project
+   ```
 
-Create a virtual environment (optional but recommended):
-```python -m venv venv```
+3. **Create a virtual environment (optional but recommended):**
+```
+   python -m venv venv
+   ```
 
-Activate the virtual environment (Windows):
-```venv\Scripts\activate```
+4. **Activate the virtual environment (Windows):**
+   
+```
+venv\Scripts\activate
+   ```
 
-Or on macOS and Linux:
-```source venv/bin/activate```
+4.1 Or on macOS and Linux:
+```
+source venv/bin/activate
+   ```
 
-Install the required Python packages:
-```pip install -r requirements.txt```
+5. **Install the required Python packages:**
+```
+pip install -r requirements.txt
+   ```
 
-Usage
+**Usage**
 Prepare the SQLite database:
 
-Create a new SQLite database or use the provided workers.db if available.
+6. **Create a new SQLite database or use the provided workers.db if available.**
 
-```sqlite3 workers.db```
-Create the necessary tables for individuals, images, and face_encodings. You can use the following SQL commands:
+```
+sqlite3 workers.db
+   ```
+7. **Create the necessary tables for individuals, images, and face_encodings. You can use the following SQL commands:**
 
-```CREATE TABLE IF NOT EXISTS individuals (
+```
+CREATE TABLE IF NOT EXISTS individuals (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL
     -- Add other columns for additional information about individuals
-);```
+);
+   ```
 
-```CREATE TABLE IF NOT EXISTS images (
+```
+CREATE TABLE IF NOT EXISTS images (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     individual_id INTEGER NOT NULL,
     image_data BLOB NOT NULL,
     FOREIGN KEY (individual_id) REFERENCES individuals(id)
-);```
+);
+   ```
 
-```CREATE TABLE IF NOT EXISTS face_encodings (
+```
+CREATE TABLE IF NOT EXISTS face_encodings (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     individual_id INTEGER NOT NULL,
     encoding_data BLOB NOT NULL,
     FOREIGN KEY (individual_id) REFERENCES individuals(id)
 );
-```
+   ```
 Populate the individuals and images tables with data.
-Run the Flask application:
+8. **Run the Flask application:**
 
-```python web_interface.py```
-Access the web interface by opening a web browser and navigating to:
+```
+python web_interface.py
+   ```
+9. **Access the web interface by opening a web browser and navigating to:**
 
 
-```http://localhost:8000/```
+```
+http://localhost:8000/
+   ```
 **Use the web interface to upload an image. The application will perform face recognition and sentiment analysis, displaying the detected person's name and sentiment.
 
 Contributing
